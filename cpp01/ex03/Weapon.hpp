@@ -21,11 +21,13 @@ class Weapon
 		const std :: string &getType(void)
 		{
 			const std ::string &strref = this -> type;
+			// std::cout<<this->type<<"in heree"<<std::endl;
 			return(strref);
 		}
 		void setType(std::string type)
 		{
 			this -> type = type;
+			
 		}
 		Weapon(std::string type);
 };

@@ -11,7 +11,7 @@
 # **************************************************************************** #
 
 NAME = program
-CPPFILES = main.cpp HumanA.cpp HumanB.cpp weapon.cpp
+CPPFILES = main.cpp HumanA.cpp HumanB.cpp Weapon.cpp
 CFLAGS = -Wall -Wextra -Werror -std=c++98
 OFILES = $(CPPFILES:.cpp=.o)
 CPPC = g++

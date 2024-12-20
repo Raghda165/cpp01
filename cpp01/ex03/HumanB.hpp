@@ -18,12 +18,11 @@ class HumanB
 {
 	private:
 		std :: string name;
+		Weapon Weapon;
 	public:
-		void setWeapon(std :: string type)
+		void setWeapon(Weapon &Weapon)
 		{
-			Weapon *weapon;
-			weapon = new Weapon;
-			weapon->setType(type);
+			this->Weapon = Weapon;
 		}
 		std :: string getname(void)
 		{

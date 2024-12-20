@@ -11,7 +11,7 @@
 /* ************************************************************************** */
 
 #include "HumanA.hpp"
-HumanA :: HumanA(std :: string name, Weapon weapon):  weapon(weapon),name(name)
+HumanA :: HumanA(std :: string name, Weapon &weapon):  weapon(weapon),name(name)
 {
 	setname(name);
 	setWeapon(weapon);
@@ -20,5 +20,5 @@ void HumanA:: attack(void)
 {
 	std :: cout << getname();
 	std :: cout << " attacks with their ";
-	std :: cout << getweapon().getType();
+	std :: cout << getweapon().getType()<<std::endl;
 }

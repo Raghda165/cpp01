@@ -17,7 +17,7 @@
 class HumanA 
 {
 	private:
-		Weapon weapon;
+		Weapon &weapon;
 		std :: string name;
 	public:
 		void setname(std :: string name)
@@ -36,7 +36,7 @@ class HumanA
 		{
 			return(this -> weapon);
 		}
-		HumanA( std :: string name,Weapon weapon);
+		HumanA( std :: string name,Weapon &weapon);
 		void attack(void);
 };
 #endif
