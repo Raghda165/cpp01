@@ -7,12 +7,13 @@ int main(int ac ,char **av)
     position = 0;
     int j = 0;
     std::string line;
-    const std::string toreplace = av[2];
-     const std::string replacement = av[2];
-
-    std::ofstream mfile("rghda first file");
     if(ac ==4)
    {
+    std::string file_name= av[1];
+    std::string ext= ".replace";
+    const std::string toreplace = av[2];
+     const std::string replacement = av[3];
+   std::ofstream mfile((file_name + ext).c_str());
      if (mfile.is_open())
     {
         std::ifstream infile(av[1]);
@@ -20,6 +21,15 @@ int main(int ac ,char **av)
             {
                 while ( std::getline(infile,line))
                {
+                    position = line.find(av[2]);
+                    while (position != std::string::npos) 
+                    {
+                        line.erase(position,toreplace.length());
+                        line.insert(position,replacement);
+                        position = line.find(toreplace, position + replacement.length());
+                        j++;
+                    std::cout << position<<"\n";
+                    }
                     mfile<<line<<std::endl;
                }
                infile.close();
@@ -27,29 +37,8 @@ int main(int ac ,char **av)
             }
             else 
                 std::cout <<"you should enter a file that exist and write the name correctly"<<std::endl;
-            std::fstream mfile("rghda first file");
-            while ( std::getline(mfile,line))
-            {
-                position = line.find(av[2]);
-                while (position != std::string::npos || j ==0) 
-                {
-                    line.erase(position,toreplace.length());
-                    line.insert(position,av[3]);
-                    position = line.find(av[2]); 
-                    j++;
-                }
-                mfile.seekp(0, std::ios::beg);
-                mfile.write(line.c_str(), line.size());
-                mfile.put('\n'); 
-            }
-            
-            
-             mfile.close();
     }
-
-    
     else
         std:: cout <<"there is issue in in opening the file"<<std::endl;
         }
-    
 }
